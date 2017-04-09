@@ -7,9 +7,14 @@
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  */
 
+/**
+ * @param  string $Library     [Knihovna se souborem]
+ * @param  string $Destination [Přesné místo umístění souboru]
+ * @return boolen              [Existence funkce či třídy v destinaci]
+ */
 function autoloader($Library, $Destination)
 {
-	$File = ROOT . "/Core/Libraries/" . $Library . "/" . $Destination;
+	$File = ROOT . "/Core/Libraries/" . $Library . "/" . $Destination . ".php";
 	
 	if (file_exists($File))
 	{
