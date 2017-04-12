@@ -9,7 +9,6 @@
 
 class Database
 {
-
 	/**
 	 * @param array  $Connect [Přihlašovací údaje uložené v poli]
 	 * @param string $Charset [Vstupní a výstupní kodování databáze]
