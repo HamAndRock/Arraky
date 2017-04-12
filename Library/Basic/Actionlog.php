@@ -15,8 +15,8 @@ function actionlog($Code, $Message)
 {
 	$File    = ROOT . "/Core/Archiv/Log/" . date("Y-m-d") . ".txt";
 	$Message = date("d/m/Y i:H:s") . " [$Code] $Message\n";
-
-	$Write = fopen($File, "a");
+	$Write   = fopen($File, "a");
+	
 	fwrite($Write, $Message);
 	fclose($Write);
 }
