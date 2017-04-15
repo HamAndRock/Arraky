@@ -63,6 +63,36 @@ class Database
 				exit;
 			}
 		}
+		
 		return ($this->Connect->connect_errno ? false : true);
+	}
+
+	/**
+	 * @param  string $Column [Sloupeček jehož obsah si přejeme znát]
+	 * @param  string $Query  [Předem ošetřený dotaz do databáze]
+	 * @return string         [Vrací požadovaný sloupeček]
+	 */
+	public function result($Column, $Query)
+	{
+		$this->Connect->set_charset($this->Charset);
+
+		$Result = $this->Connect
+		               ->query($Query . " limit 1");
+
+		return $Result->fetch_array(MYSQLI_ASSOC)[$Column];
+		$this->Connect->close();
+	}
+
+	/**
+	 * @param  string  $Query [Předem ošetřený SQL dotaz]
+	 * @return integer        [Počet výsledků odeslaného dotazu]
+	 */
+	public function results($Query)
+	{
+		return $this->Connect
+			    ->query($Query)
+			    ->num_rows;
+
+		$this->Connect->close();
 	}
 }
