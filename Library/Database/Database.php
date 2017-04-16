@@ -13,7 +13,7 @@ class Database
 	 * @param array  $Connect [Přihlašovací údaje uložené v poli]
 	 * @param string $Charset [Vstupní a výstupní kodování databáze]
 	 */
-	public function __construct($Connect, $Charset = "utf-8")
+	public function __construct($Connect, $Charset = "utf8")
 	{
 		$this->Host     = $Connect["Host"];
 		$this->Name     = $Connect["Name"];
