@@ -23,6 +23,6 @@ function autoloader($Library, $Destination)
 	}
 	else
 	{
-		return false;
+		throw new \RuntimeException('File "' . $Destination . '" does not exist.');
 	}
 }
